@@ -1,0 +1,23 @@
+.menu {
+  background-color: rgba(40, 40, 40, 1);
+  width: 100%;
+  display: flex;
+  &>ul {
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+  &__item {
+    & a {
+      line-height: 60px;
+      display: block;
+      padding: 0 10px;
+      color: $main-color-1;
+      transition: color 0.4s ease 0s;
+      &:hover {
+        color: $main-color-2;
+      }
+    }
+  }
+}
