@@ -1,0 +1,30 @@
+.logo {
+  @include absoluteCenterX();
+  top: 20px;
+  width: 250px;
+  height: 30px;
+  transition: opacity 0.3s ease-in-out;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+}
+a.logo {
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+}
+@media (min-width: $tablet-portrait) {
+
+  .logo {
+    @include absoluteCenterY();
+    left: 14px;
+    width: 314px;
+    height: 38px;
+  }
+
+}

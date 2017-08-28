@@ -1,0 +1,97 @@
+.single-post {
+
+  &__info {
+    margin-top: 23px;
+    margin-bottom: 29px;
+    color: #999999;
+    font-size: 13px;
+    line-height: 15px;
+
+    &_footer {
+      margin-top: 25px;
+      margin-bottom: 0;
+      border-top: 1px solid #d9d9d9;
+      padding-top: 25px;
+    }
+
+    dl {
+      margin: 0 0 3px;
+
+      dt {
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 0;
+        @include main-font2();
+        color: #999999;
+      }
+      dd {
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 0;
+        color: #000000;
+      }
+
+    }
+
+  }
+  &__links {
+    margin: 0 0 19px;
+
+    a {
+      margin: 0 17px 0 0;
+      font-size: 13px;
+      line-height: 15px;
+      text-decoration: underline;
+      color: #000000;
+
+      &:hover {
+        text-decoration: none;
+        color: #000000;
+      }
+
+    }
+
+  }
+  &__themes {
+    padding: 2px 0 2px 18px;
+    margin-bottom: 24px;
+    border-left: 2px solid #0a4c84;
+    font-size: 14px;
+    line-height: 18px;
+
+    div {
+      margin-bottom: 6px;
+    }
+    a {
+      color: #0a4c84;
+      border-bottom: 1px dotted #0a4c84;
+      font-size: 14px;
+      line-height: 18px;
+      transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+
+      &:hover {
+        color: #368acf;
+        border-bottom-color: transparent;
+      }
+
+    }
+
+  }
+  &__footnote {
+    padding: 0 7px;
+    color: #fff;
+    border-radius: 3px;
+    background: #11807f;
+    font-size: 11px;
+    line-height: 11px;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .single-post {
+
+  }
+
+}

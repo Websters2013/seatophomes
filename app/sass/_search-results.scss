@@ -1,0 +1,101 @@
+.search-results {
+
+  &__categories {
+    @include flexbox();
+    @include flex-direction();
+    @include justify-content(space-between);
+    @include align-items();
+    @include flex-wrap(wrap);
+    padding: 0 17px 23px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #b2b2b2;
+
+    &-num {
+      color: #b2b2b2;
+    }
+
+    .active {
+      color: #000000;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+    }
+
+    >div {
+      width: 100%;
+
+      >a {
+        display: block;
+        margin-bottom: 6px;
+        color: #b2b2b2;
+        cursor: default;
+      }
+
+    }
+
+  }
+  &__articles {
+    font-size: 13px;
+    line-height: 15px;
+
+    h2 {
+      position: relative;
+      padding: 5px 30px 6px 17px;
+      margin: 0 0 17px;
+      background: #0a4c84;
+      color: #fff;
+      @include main-font5();
+    }
+    h3 {
+      padding: 0 0 0 17px;
+      margin: 0 0 7px;
+      color: #0a4c84;
+      @include main-font5();
+    }
+    ul {
+      padding: 0 31px 20px;
+
+      li {
+        margin: 0 0 7px;
+
+        a {
+          color: #000000;
+
+          &:hover {
+            color: #0a4c84;
+          }
+
+        }
+
+      }
+
+    }
+    &-num {
+      @include absoluteCenterY();
+      right: 16px;
+      color: #96adc0;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .search-results {
+
+    &__categories {
+
+      >div {
+        width: 48%;
+      }
+
+    }
+
+  }
+
+}

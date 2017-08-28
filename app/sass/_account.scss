@@ -1,0 +1,97 @@
+.account {
+  @include absoluteCenterX();
+  bottom: 20px;
+  padding: 3px 23px 6px 13px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  line-height: 15px;
+  border-radius: 3px 3px 0 0;
+  color: #004c86;
+  transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    right: 9px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #004c86;
+    border-left: 1px solid #004c86;
+    transform: rotate(-135deg);
+    content: '';
+    transition: border 0.3s ease-in-out;
+  }
+
+  &:hover {
+    color: #15000a;
+
+    &:after {
+      border-top-color: #15000a;
+      border-left-color: #15000a;
+    }
+
+  }
+
+  &__menu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: -1px;
+    top: 24px;
+    right: -1px;
+    padding: 8px 0 14px;
+    background: #fff;
+    border: 1px solid #024b86;
+    border-radius: 0 0 3px 3px;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+    a {
+      display: block;
+      padding: 5px 12px;
+      font-size: 13px;
+      line-height: 15px;
+      color: #004c86;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #368acf;
+      }
+      &.active {
+        color: #368acf;
+        cursor: default;
+      }
+
+    }
+
+  }
+
+  &.opened {
+    border-color: #024b86;
+
+    &:after {
+      margin-top: -2px;
+      transform: rotate(-135deg) scale(-1,-1);
+    }
+
+    .account__menu {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+
+}
+@media (min-width: $tablet-portrait) {
+
+  .account {
+    @include absoluteCenterY();
+    left: auto;
+    bottom: auto;
+    right: 14px;
+    margin-top: -1px;
+  }
+
+}

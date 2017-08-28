@@ -1,0 +1,175 @@
+/* --------------- content --------------- */
+.content {
+  font-size: 15px;
+  line-height: 22px;
+  color: #000;
+  @include main-font2();
+  font-weight: 300;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 3px;
+    font-size: 30px;
+    line-height: 32px;
+    @include main-font2();
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 17px;
+    font-size: 20px;
+    line-height: 22px;
+  }
+  p {
+    margin-bottom: 35px;
+  }
+
+  ul {
+    clear: both;
+    margin: 0 0 16px 0;
+
+    li {
+      position: relative;
+      padding: 0 0 0 14px;
+
+      &:after {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 4px;
+        height: 4px;
+        border-radius: 4px;
+        background: #000;
+        content: '';
+      }
+
+    }
+
+    ul {
+      margin: 10px 0 10px 25px;
+    }
+
+  }
+
+  ol {
+    clear: both;
+    margin: 0 0 16px 0;
+    counter-reset: list;
+
+    li {
+      position: relative;
+      padding: 0 0 0 14px;
+
+      &:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #000;
+        counter-increment: list;
+        content: counter(list) ". ";
+      }
+
+    }
+
+    ol {
+      margin: 10px 0 10px 25px;
+    }
+
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 35px;
+    font-size: 100%;
+    border: 1px solid #004c86;
+  }
+  th,
+  td {
+    border: 1px solid #000;
+    padding: 4px;
+    text-align: left;
+  }
+  th {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  a,
+  a font {
+    color: #004c86;
+    font-size: 13px;
+    transition: color 0.3s ease-in-out;
+  }
+  a:hover,
+  a:hover font {
+    color: #368acf;
+    text-decoration: none;
+  }
+  a:active,
+  a:active font {
+    color: #368acf;
+  }
+
+  dl {
+    margin: 0 0 35px 0;
+
+    dt {
+      @include main-font4();
+      margin-bottom: 2px;
+      color: #094c84;
+    }
+    dd {
+      margin-bottom: 25px;
+    }
+
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 20px;
+  }
+
+  strong {
+    @include main-font4();
+  }
+}
+
+@media (min-width: $desktop) {
+
+  .content {
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+      width: auto;
+      height: auto;
+    }
+    .alignnone {
+      width: 100%;
+      margin: 47px 0;
+    }
+    .alignleft {
+      margin: 20px 20px 47px 0;
+      float: left;
+    }
+    .aligncenter {
+      display: block;
+      margin: 20px auto 47px;
+    }
+    .alignright {
+      margin: 20px 0 47px 20px;
+      float: right;
+    }
+
+  }
+
+}
+/* --------------- /content --------------- */

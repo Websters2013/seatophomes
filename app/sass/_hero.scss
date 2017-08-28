@@ -1,0 +1,95 @@
+.hero {
+  @include flexbox();
+  @include flex-direction();
+  @include justify-content();
+  @include align-items(center);
+  height: calc(100vh - 110px - 114px);
+  min-height: 450px;
+  background: url("../img/hero-bg.jpg") no-repeat top center/cover;
+
+  &__layout {
+    position: relative;
+    max-width: 1008px;
+    padding: 0 14px;
+    margin: 0 auto;
+    width: 100%;
+
+    >div {
+      padding: 40px 0;
+    }
+
+  }
+  &__title {
+    margin-bottom: 31px;
+    font-size: 32px;
+    line-height: 36px;
+    color: #000000;
+    @include main-font2();
+
+    span {
+      @include main-font5();
+    }
+
+  }
+  &__list {
+    color: #000000;
+    font-size: 15px;
+    line-height: 17px;
+
+    li {
+      position: relative;
+      padding: 0 0 0 22px;
+      margin-bottom: 7px;
+      background: url("../img/check.png") no-repeat 0 2px;
+      background-size: 16px 13px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .hero {
+    height: calc(100vh - 40px - 113px);
+    //min-height: 550px;
+
+    &:after {
+      position: absolute;
+      right: 0;
+      bottom: 26px;
+      width: 400px;
+      height: calc(100vh - 40px - 113px);
+      max-height: 724px;
+      background: url("../img/woman.png") no-repeat top left;
+      background-size: cover;
+      content: '';
+    }
+
+    &__layout {
+
+      >div {
+        max-width: 470px;
+        padding: 0 0 81px;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .hero {
+    //min-height: 687px;
+
+    &:after {
+      bottom: 0;
+      width: 684px;
+      background-size: contain;
+    }
+
+  }
+
+}

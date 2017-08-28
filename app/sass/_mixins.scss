@@ -1,9 +1,30 @@
 //fonts
 @mixin main-font1() {
-  font-family: "myriadpro-regular", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+@mixin main-font2() {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+@mixin main-font3() {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+@mixin main-font4() {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+@mixin main-font5() {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
 
 @mixin justify() {
   text-align: justify;

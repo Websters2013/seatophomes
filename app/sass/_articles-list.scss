@@ -1,0 +1,143 @@
+.articles-list {
+  padding: 0 37px 18px 17px;
+
+  &__categories {
+    color: #000000;
+    font-size: 13px;
+    line-height: 16px;
+
+    a {
+      position: relative;
+      display: block;
+      margin: 0 0 6px;
+      color: #000000;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #0a4c84;
+      }
+
+    }
+
+    ul {
+      overflow: hidden;
+      height: 0;
+      min-height: 0;
+      transition: min-height 0.3s ease-in-out, height 0.3s ease-in-out;
+    }
+
+    >li {
+
+      >a {
+        @include main-font5();
+      }
+
+      &.opened {
+
+        >a {
+          color: #0a4c84;
+        }
+
+        >ul {
+          display: block;
+        }
+
+      }
+
+      >ul {
+        padding-left: 20px;
+
+        >li {
+
+          >ul {
+            padding-left: 15px;
+
+            .active {
+
+              &:after {
+                position: absolute;
+                top: 6px;
+                left: -12px;
+                width: 6px;
+                height: 6px;
+                background: #ee2800;
+                border-radius: 100%;
+                content: '';
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+    .opened {
+
+      >a {
+
+        >.articles-list__count {
+          color: #90a9bf;
+        }
+
+        &.articles-list__drop {
+
+          &:after {
+            background: #0a4c84;
+            border-color: #0a4c84;
+          }
+          &:before {
+            top: -1px;
+            left: -16px;
+            font-size: 19px;
+            color: #fff;
+            content: '-';
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+  &__count {
+    margin-left: 6px;
+    @include main-font2();
+    color: #b2b2b2;
+  }
+  &__drop {
+
+    &:after {
+      position: absolute;
+      top: 2px;
+      left: -19px;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      border: 1px solid #bfbfbf;
+      content: '';
+    }
+    &:before {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: -16px;
+      font-size: 16px;
+      color: #bfbfbf;
+      content: '+';
+    }
+
+  }
+
+}
+@media (min-width: $tablet-portrait) {
+
+  .articles-list {
+
+  }
+
+}
