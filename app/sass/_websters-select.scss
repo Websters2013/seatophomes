@@ -4,50 +4,34 @@
   vertical-align: top;
   box-sizing: border-box;
   position: relative;
-  width: 200px;
-  height: 22px;
-  border: 1px solid $websters-select-border;
+  width: 400px;
+  height: 40px;
+  border: 1px solid #C99A22;
 
   &_opened {
 
     .websters-select__arrow {
+      top: calc( 50% - 7px );
       transform: rotate(180deg);
     }
 
   }
 
   &__arrow{
+    top: calc( 50% - 2px );
+    right: 10px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 20px;
-    transform-origin: center;
-    -webkit-transition: -webkit-transform 200ms ease-in-out;
-    transition: transform 200ms ease-in-out;
+    pointer-events: none;
+    border-color: rgba(201, 154, 34, 0);
+    border-top-color: #C99A22;
+    border-width: 5px 5px 5px 5px;
 
-    &:after,
-    &:before {
-      position: absolute;
-      top: 9px;
-      width: 10px;
-      height: 2px;
-      border-radius: 2px;
-      background: $websters-select-border;
-      content: '';
-    }
-
-    &:after {
-      left: 4px;
-      transform: rotate(70deg);
-
-    }
-
-    &:before {
-      right: 3px;
-      transform: rotate(-70deg);
-
-    }
+    -webkit-transition: -webkit-transform .3s ease, top .3s ease;
+    transition: transform .3s ease, top .3s ease;
   }
 
   &__item {
@@ -56,6 +40,8 @@
     right: 20px;
     left: 5px;
     padding: 1px 5px 0;
+    @include helvetica-light;
+    font-size: 18px;
     box-sizing: border-box;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -90,24 +76,28 @@
     box-sizing: border-box;
     border: 1px solid $websters-select-border;
     background: $websters-select-popup-back;
+    @include helvetica-light;
+    font-size: 18px;
 
     ul {
       z-index: 1;
     }
 
     li {
+      padding: 10px;
       white-space: nowrap;
       overflow: hidden;
       cursor: pointer;
 
       &:hover {
         color: $websters-select-popup-item-active-color;
-        background: $websters-select-popup-item-active-back;
+        background-color: #ccc;
       }
 
       &.active {
         color: $websters-select-popup-item-active-color !important;
-        background: $websters-select-popup-item-active-back !important;
+        background-color: #ccc!important;
+        cursor: text!important;
       }
 
     }

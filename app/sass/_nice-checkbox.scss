@@ -7,7 +7,7 @@
     position: absolute;
     clip: rect(0, 0, 0, 0);
 
-    &:checked + label {
+    &:checked + span {
 
       &:before {
         display: block;
@@ -15,13 +15,21 @@
 
     }
 
-    &:disabled + label {
+    &:disabled + span {
       cursor: default;
       opacity: .5;
     }
 
+    &.not-valid,
+    &.not-touched{
+      + span:after{
+        border-color: #f00!important;
+      }
+    }
+
   }
-  label {
+
+  span {
     position: relative;
     display: flex;
     text-align: left;
@@ -44,7 +52,7 @@
       left: 0;
       width: 15px;
       height: 15px;
-      border: 2px solid $nice-checkbox-after-color;
+      border: 2px solid #C99A22;
     }
 
     &:before {
@@ -52,7 +60,7 @@
       top: 7px;
       left: 7px;
       border-radius: 50%;
-      background: $nice-checkbox-after-color;
+      background: #C99A22;
       width: 5px;
       height: 5px;
       content: '';

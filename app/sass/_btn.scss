@@ -1,27 +1,38 @@
 .btn {
-  @include inline-flex();
-  @include flex-direction();
-  @include justify-content(center);
-  @include align-items(center);
-  border: 1px solid #0a4c84;
-  min-width: 68px;
-  height: 26px;
+  border: none;
+  height: 50px;
   padding: 0 10px;
-  padding-bottom: 2px;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 13px;
-  line-height: 16px;
-  background: #0a4c84;
-  @include main-font2();
-  transition: background 0.3s ease-in-out;
+  color: $btn-color;
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background: $btn-back;
 
   &:hover {
-    background: #1762a0;
+    background: $btn-back-hover;
   }
 
   &:active {
-    background: #004074;
+    color: $btn-color-active;
+    background: $btn-back-active;
+  }
+
+  &_2 {
+    width: 150px;
+    height: 40px;
+    background: $btn-2-back;
+
+    &:hover {
+      background: $btn-2-back-hover;
+    }
+
+    &:active {
+      color: $btn-2-color-active;
+      background: $btn-2-back-active;
+    }
   }
 
 }

@@ -1,0 +1,146 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.9);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  transition: visibility .3s ease, opacity.3s ease;
+  -webkit-transition: visibility .3s ease, opacity.3s ease;
+
+  &.visible{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  a {
+    padding: 0 10px;
+    color: $main-color-1;
+
+    &.active{
+      color: #969696;
+      cursor: text;
+    }
+
+  }
+
+  &__item {
+    margin: 10px 0;
+    @include helvetica-light;
+    font-size: 14px;
+  }
+
+  &-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 64px;
+    height: 60px;
+    padding: 31px 0;
+    background-color: transparent;
+    z-index: 10;
+    cursor: pointer;
+
+    span{
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: #fff;
+
+      &:before,
+      &:after{
+        position: absolute;
+        left: 0;
+        right: 50%;
+        height: inherit;
+        background-color: inherit;
+        content: '';
+        transition: top .3s ease, transform .3s ease, background-color .3s ease;
+        -webkit-transition: top .3s ease, transform .3s ease, background-color .3s ease;
+      }
+
+      &:before{
+        top: calc( 50% - 10px );
+      }
+
+      &:after{
+        bottom: calc( 50% - 12px );
+      }
+
+    }
+
+    &.close {
+
+      span {
+        background-color: transparent;
+
+        &:before {
+          top: 50%;
+          background-color: #fff;
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+        }
+
+        &:after {
+          bottom: 46%;
+          background-color: #fff;
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .menu {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    background-color: transparent;
+
+    ul {
+      flex-direction: row;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      margin: 0 10px;
+      transition: color .3s ease;
+
+      &:hover {
+        color: #969696;
+      }
+
+    }
+
+    &-btn{
+      display: none;
+    }
+
+    &__item {
+      margin: 0;
+    }
+
+  }
+}

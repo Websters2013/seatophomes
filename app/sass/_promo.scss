@@ -1,0 +1,93 @@
+.promo {
+  height: 100vh;
+  background: url('../img/bg-promo.jpg') no-repeat center;
+  background-size: cover;
+  color: #fff;
+  @include helvetica-bold;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 2px 3px rgba(0,0,0,.5);
+
+  h2{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  &__wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  &_2{
+    background-image: url("../img/bg-character.jpg");
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .promo {
+    overflow: hidden;
+
+    h2{
+      padding: 0 30px;
+      font-size: 20px;
+      text-align: left;
+    }
+
+    &__wrap{
+      padding: 0 20px;
+      font-size: 53px;
+
+      & > div{
+        position: relative;
+
+        &:before,
+        &:after{
+          content: '';
+          position: absolute;
+          left: calc( 50% - 5px );
+          width: 5px;
+          background-color: #C99A22;
+        }
+
+        &:before{
+          bottom: calc( 100% + 20px );
+          height: 180px;
+        }
+
+        &:after{
+          top: calc( 100% + 50px );
+          height: 500px;
+        }
+
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .promo {
+
+    h2 {
+      top: 120px;
+      padding: 0;
+    }
+
+    &__wrap{
+      max-width: 1224px;
+      font-size: 80px;
+    }
+
+  }
+}
+

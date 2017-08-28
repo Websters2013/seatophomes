@@ -1,30 +1,19 @@
 //fonts
-@mixin main-font1() {
-  font-family: 'Exo 2', sans-serif;
+@mixin helvetica-regular() {
+  font-family: "helvetica-regular", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-@mixin main-font2() {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: 300;
+@mixin helvetica-light() {
+  font-family: "helvetica-light", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
-@mixin main-font3() {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: 700;
+@mixin helvetica-bold() {
+  font-family: "helvetica-bold", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
-@mixin main-font4() {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-@mixin main-font5() {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
 
 @mixin justify() {
   text-align: justify;
