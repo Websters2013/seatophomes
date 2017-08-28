@@ -42,14 +42,7 @@ remove_action('wp_head', 'wp_oembed_add_discovery_links');
 //remove_action('wp_head', 'wp_oembed_add_host_js');
 add_filter('the_content', 'do_shortcode');
 add_filter('wpcf7_form_elements', 'do_shortcode');
-
-
-function custom_clean_head() {
-	remove_action('wp_head', 'wp_print_scripts');
-	remove_action('wp_head', 'wp_print_head_scripts', 9);
-	remove_action('wp_head', 'wp_enqueue_scripts', 1);
-}
-add_action( 'wp_enqueue_scripts', 'custom_clean_head' );
+add_filter( 'the_content', 'wpautop' );
 
 add_action('wp_enqueue_scripts', 'add_js');
 /* styles and scripts*/
@@ -57,13 +50,23 @@ function add_js() {
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', get_template_directory_uri() . '/assets/js/vendors/jquery-2.2.1.min.js', false, filemtime(realpath(__DIR__ . DIRECTORY_SEPARATOR . '..') . '/assets/js/vendors/jquery-2.2.1.min.js'), true);
 	wp_register_script('index', get_template_directory_uri() . '/assets/js/index.min.js', false, filemtime(realpath(__DIR__ . DIRECTORY_SEPARATOR . '..') . '/assets/js/index.min.js'), true);
-	wp_register_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAD3D50PWmODs12Xm6DYXUiox28DmF2dE8', false, null, true);
+	wp_register_script('video', get_template_directory_uri() . '/assets/js/vendors/jquery.youtube-bg.js', false, filemtime(realpath(__DIR__ . DIRECTORY_SEPARATOR . '..') . '/assets/js/vendors/jquery.youtube-bg.js'), true);
+	wp_register_script('perfect-scrollbar', get_template_directory_uri() . '/assets/js/vendors/perfect-scrollbar.jquery.min.js', false, filemtime(realpath(__DIR__ . DIRECTORY_SEPARATOR . '..') . '/assets/js/vendors/perfect-scrollbar.jquery.min.js'), true);
+
 
 	wp_register_style('style', get_stylesheet_uri(), false, filemtime(realpath(__DIR__ . DIRECTORY_SEPARATOR . '..').'/style.css'));
 	wp_register_style('index', get_template_directory_uri() . '/assets/css/index.css',false, filemtime( realpath(__DIR__ . DIRECTORY_SEPARATOR . '..').'/assets/css/index.css'));
+	wp_register_style('perfect-scrollbar', get_template_directory_uri() . '/assets/css/perfect-scrollbar.min.css',false, filemtime( realpath(__DIR__ . DIRECTORY_SEPARATOR . '..').'/assets/css/perfect-scrollbar.min.css'));
 
-	wp_enqueue_script('maps');
+
 	wp_enqueue_script('jquery');
+	wp_enqueue_script('video');
+
+	if(is_page(14)) {
+		wp_enqueue_script('perfect-scrollbar');
+		wp_enqueue_style('perfect-scrollbar');
+	}
+
 	wp_enqueue_script('index');
 
 	wp_enqueue_style('index');
@@ -76,65 +79,5 @@ register_nav_menus( array(
     'menu' => 'menu'
 ) );
 
-add_filter( 'upload_size_limit', 'PBP_increase_upload' );
-function PBP_increase_upload( $bytes ) {
-	return 400000000;
-}
 
-function remove_menus(){
-	if (current_user_can('administrator')) {
-		remove_submenu_page('themes.php', 'themes.php');
-		remove_submenu_page('themes.php','customize.php?return=%2Fwp-admin%2Ftheme-editor.php');
-		remove_submenu_page('themes.php','theme-editor.php');
-	}else {
-		remove_menu_page( 'edit-comments.php' );
-		remove_menu_page( 'edit.php?post_type=tehnology' );
-		remove_menu_page( 'edit.php?post_type=project' );
-		remove_menu_page( 'admin.php?page=wpcf7' );
-	}
-
-}
-add_action('admin_menu', 'remove_menus');
-
-remove_action( 'load-update-core.php', 'wp_update_plugins' );
-add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
-wp_clear_scheduled_hook( 'wp_update_plugins' );
-
-add_action('admin_print_footer_scripts', 'hide_tax_metabox_tabs_admin_styles', 99);
-function hide_tax_metabox_tabs_admin_styles(){
-	$cs = get_current_screen();
-	if( $cs->base !== 'post' || empty($cs->post_type) ) return; // не страница редактирования записи
-	?>
-	<style>
-		.postbox div.tabs-panel { max-height:1200px; border:0; }
-		.category-tabs { display:none; }
-	</style>
-	<?php
-}
-
-function my_custom_login_logo(){
-	echo '<style type="text/css">	h1 a { background-image:url('.get_template_directory_uri().'/assets/img/logo.svg) !important;background-size: 90% !important; }
-	</style>';
-}
-add_action('login_head', 'my_custom_login_logo');
-
-## Изменение внутреннего логотипа админки. Для версий с dashicons
-add_action('add_admin_bar_menus', 'reset_admin_wplogo');
-function reset_admin_wplogo(  ){
-	remove_action( 'admin_bar_menu', 'wp_admin_bar_wp_menu', 10 ); // удаляем стандартную панель (логотип)
-
-	add_action( 'admin_bar_menu', 'my_admin_bar_wp_menu', 10 ); // добавляем свою
-}
-function my_admin_bar_wp_menu( $wp_admin_bar ) {
-	$wp_admin_bar->add_menu( array(
-		'id'    => 'wp-logo',
-		'title' => '<img style="width:auto;height:100%;" src="'.get_template_directory_uri().'/assets/img/logo.svg" alt="" >',
-		'href'  => home_url('/about/'),
-		'meta'  => array(
-			'title' => 'Websrers',
-		),
-	) );
-}
-
-add_filter( 'the_content', 'wpautop' );
 ?>
