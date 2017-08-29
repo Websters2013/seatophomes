@@ -29,7 +29,7 @@
     >li {
 
       >a {
-        @include main-font5();
+        @include helvetica-regular;
       }
 
       &.opened {
@@ -104,11 +104,13 @@
     }
 
   }
+
   &__count {
     margin-left: 6px;
-    @include main-font2();
+    @include helvetica-regular;
     color: #b2b2b2;
   }
+
   &__drop {
 
     &:after {
@@ -121,6 +123,7 @@
       border: 1px solid #bfbfbf;
       content: '';
     }
+
     &:before {
       position: absolute;
       z-index: 1;

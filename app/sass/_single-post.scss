@@ -21,7 +21,7 @@
         display: inline-block;
         vertical-align: top;
         margin-bottom: 0;
-        @include main-font2();
+        @include helvetica-light;
         color: #999999;
       }
       dd {

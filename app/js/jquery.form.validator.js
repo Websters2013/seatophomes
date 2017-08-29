@@ -40,8 +40,12 @@
 
                     }
 
+                    if ( curItem.hasClass( 'valid' ) ){
+                        curItem.removeClass( 'not-touched' );
+                    }
+
                 } );
-                _noteWrap
+
                 if ( $( '#comments__rate-input' ).hasClass( 'not-touched' ) ) {
                     $( '#comments__rate' ).addClass( 'not-valid' );
                 }
@@ -102,20 +106,17 @@
 
                             _note.addClass('visible');
                             _noteWrap.css( 'height', _note.outerHeight() )
-
                         }
 
-                        if( _fields.hasClass('not-touched') || _fields.hasClass('not-valid') ) {
-
+                        if( _fields.hasClass( 'not-touched' ) || _fields.hasClass('not-valid') ) {
                             _obj.find('.not-touched:first').focus();
                             _obj.find('.not-valid:first').focus();
                             return false;
-
                         } else {
-                            _ajaxRequest()
+                            _ajaxRequest();
                             return false;
-
                         }
+
                     }
                 } );
                 _checkbox.on( 'change', function () {
@@ -134,8 +135,11 @@
                     url: $( 'body' ).data( 'mail' ),
                     data: {
                         name: $( 'input[name=name]' ).val(),
+                        company: $( 'input[name=company]' ).val(),
                         email: $( 'input[name=email]' ).val(),
-                        phone: $( 'input[name=phone]' ).val()
+                        phone: $( 'input[name=phone]' ).val(),
+                        message: $( 'textarea[name=message]' ).val(),
+                        contacting: $( 'select[name=contacting]' ).val()
                     },
                     dataType: 'json',
                     type: 'GET',

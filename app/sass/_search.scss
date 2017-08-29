@@ -51,7 +51,7 @@
 
         b {
           color: #024b86;
-          @include main-font5();
+          @include helvetica-bold;
         }
 
       }
@@ -77,7 +77,7 @@
       border: 1px solid #0a4c84;
       border-radius: 3px;
       background: #fff;
-      @include main-font2();
+      @include helvetica-regular;
       font-size: 13px;
       line-height: 13px;
       -webkit-appearance: none;

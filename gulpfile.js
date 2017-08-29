@@ -25,20 +25,10 @@ let paths = {
         {
             dist: 'index.min.js',
             contains: [
-                'app/js/jquery.index.js'
-            ]
-        },
-        {
-            dist: 'ui.min.js',
-            contains: [
-                'app/js/jquery.popup.js',
+                'app/js/jquery.main.js',
+                'app/js/jquery.index.js',
+                'app/js/jquery.form.validator.js',
                 'app/js/jquery.websters-select.js'
-            ]
-        },
-        {
-            dist: 'tabs.min.js',
-            contains: [
-                'app/js/jquery.tabs.js'
             ]
         }
     ],
@@ -47,6 +37,7 @@ let paths = {
     images: 'app/img/**/*',
     pictures: 'app/pic/**/*',
     php: 'app/php/**/*',
+    files: 'app/files/**/*',
     fonts: 'app/fonts/**/*'
 };
 
@@ -87,14 +78,20 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('php', function () {
-    return gulp.src(paths.fonts, {
+    return gulp.src(paths.php, {
         base: 'app/php'
     }).pipe(gulp.dest(`${ distPath }/php`));
 });
 
+gulp.task('files', function () {
+    return gulp.src(paths.files, {
+        base: 'app/files'
+    }).pipe(gulp.dest(`${ distPath }/files`));
+});
+
 gulp.task('styles', function () {
     return gulp.src(paths.styles)
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
         .pipe(sourcemaps.write())
@@ -105,7 +102,7 @@ gulp.task('styles', function () {
 gulp.task( 'scripts', function () {
     for ( var i = 0; i < paths.scripts.length; i++ ){
         gulp.src( paths.scripts[ i ].contains )
-            .pipe(sourcemaps.init())
+            //.pipe(sourcemaps.init())
             // .pipe(babel({presets: ['es2015']})) //for js6
             .pipe(uglify())
             .pipe(concat(paths.scripts[ i ].dist))
@@ -137,7 +134,7 @@ gulp.task('watch', function() {
 });
 
 function serve() {
-    return run('styles', 'scripts', 'vendorScripts', 'vendorStyles', 'php', 'fonts',  'images', 'pictures', 'views', 'serve');
+    return run('styles', 'scripts', 'vendorScripts', 'vendorStyles', 'php', 'files', 'fonts',  'images', 'pictures', 'views', 'serve');
 }
 
 gulp.task('default', ['clean'], serve());

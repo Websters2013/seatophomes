@@ -48,13 +48,13 @@
       margin: 0 0 17px;
       background: #0a4c84;
       color: #fff;
-      @include main-font5();
+      @include helvetica-regular;
     }
     h3 {
       padding: 0 0 0 17px;
       margin: 0 0 7px;
       color: #0a4c84;
-      @include main-font5();
+      @include helvetica-regular;
     }
     ul {
       padding: 0 31px 20px;
