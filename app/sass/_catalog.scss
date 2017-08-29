@@ -5,6 +5,7 @@
     margin-bottom: 30px;
     padding: 0 10px;
     font-size: 20px;
+    text-align: center;
   }
 
   &__item{
@@ -22,6 +23,10 @@
     img, video{
       display: block;
       width: 100%;
+    }
+    iframe {
+      width: 100% !important;
+      height: 67vw !important;
     }
 
     span{
@@ -64,11 +69,17 @@
     &__preview{
       width: 100%;
       margin: 0 0 20px;
+      height: 100%;
 
       img, video{
 
       }
-
+      iframe {
+        width: 100% !important;
+        height: 100% !important;
+        padding-bottom: 11px;
+        padding-top: 10px;
+      }
     }
 
   }
