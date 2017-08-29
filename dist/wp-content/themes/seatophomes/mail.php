@@ -5,7 +5,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 //Script Foreach
 $c = true;
 
-	$project_name = 'roeirubin';
+	$project_name = 'seatophomes';
 	$admin_email  = 'akumuliation@gmail.com';
 	$form_subject = 'Contact';
 
