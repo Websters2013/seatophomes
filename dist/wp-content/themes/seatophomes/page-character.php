@@ -17,6 +17,7 @@ if(!empty($categories)) {
 			$categories_string .= '<!-- catalog__wrap --><div class="catalog__wrap">';
 			foreach ($row['items'] as $rows) {
 				$title = $rows['title'];
+				$class = '';
 
 				if($title) {
 					$title = '<span>'.$title.'</span>';
@@ -26,14 +27,15 @@ if(!empty($categories)) {
 					$image = $rows['image'];
 					$image_content = '<img src="'.$image['url'].'" alt="'.$image['alt'].'" title="'.$image['title'].'">';
 				} else {
-					$image_content =  $rows['video'];
+					$image_content =  '<div class="video">'.$rows['video'].'</div>';
+					$class = ' character video';
 				}
 				if(empty($image)) {
 					continue;
 				}
 				$categories_string .= '<article class="catalog__item">
 
-				<div class="catalog__preview">
+				<div class="catalog__preview'.$class.'">
 					'.$image_content.'
 				</div>
 				<div class="catalog__content">

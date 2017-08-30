@@ -1,5 +1,6 @@
 .map {
   position: relative;
+  height: 350px;
 
   &:before{
     content: '';
@@ -40,6 +41,10 @@
 @media (min-width: $tablet-portrait) {
   .map {
     height: 550px;
+
+    & + .catalog {
+      padding-top: 30px;
+    }
 
     &__content{
       padding: 20px 30px 0;

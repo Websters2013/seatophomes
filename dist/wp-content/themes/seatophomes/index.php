@@ -18,7 +18,7 @@ if(!empty($categories)) {
 			foreach ($row['items'] as $rows) {
 				$link = $rows['url'];
 				$title = $link['title'];
-
+                $class = '';
 
 				if($title) {
 					$title = '<span>'.$title.'</span>';
@@ -28,14 +28,15 @@ if(!empty($categories)) {
 					$image = $rows['image'];
 					$image_content = '<img src="'.$image['url'].'" alt="'.$image['alt'].'" title="'.$image['title'].'">';
 				} else {
-					$image_content =  $rows['video'];
+					$image_content =  '<div class="video">'.$rows['video'].'</div>';
+					$class = ' video';
 				}
 				if(empty($image)) {
 					continue;
 				}
 				$categories_string .= '<a href="'.$link['url'].'" class="catalog__item" target="'.$link['target'].'">
 
-				<div class="catalog__preview">
+				<div class="catalog__preview'.$class.'">
 					'.$image_content.$title.'
 				</div>
 
