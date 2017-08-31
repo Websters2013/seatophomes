@@ -34,7 +34,7 @@ if(!empty($categories)) {
 				if(empty($image)) {
 					continue;
 				}
-				$categories_string .= '<a href="'.$link['url'].'" class="catalog__item" target="'.$link['target'].'">
+				$categories_string .= '<a class="catalog__item">
 
 				<div class="catalog__preview'.$class.'">
 					'.$image_content.$title.'

@@ -42,8 +42,9 @@
   }
 
   &__content{
-    padding-right: 20px;
+    padding: 0 20px;
     line-height: 22px;
+    text-align: justify;
 
     h3{
       margin-bottom: 10px;
@@ -116,6 +117,7 @@
     }
 
     a.catalog__item{
+      pointer-events: none;
 
       .catalog__preview{
         position: relative;
@@ -132,10 +134,15 @@
           left: 0;
           background-color: rgba(0,0,0,.7);
           content: '';
-          -webkit-transform: scale(0);
-          transform: scale(0);
+          //-webkit-transform: scale(0);
+          //transform: scale(0);
           -webkit-transition: transform .3s ease;
           transition: transform .3s ease;
+
+
+
+          -webkit-transform: scale(1);
+          transform: scale(1);
         }
 
         span{
@@ -151,12 +158,15 @@
           padding: 20px;
           color: #fff;
           font-size: 16px;
-          opacity: 0;
-          visibility: hidden;
+          //opacity: 0;
+          //visibility: hidden;
           z-index: 2;
           -webkit-transition: opacity .3s ease, visibility .3s ease;
           transition: opacity .3s ease, visibility .3s ease;
 
+
+          opacity: 1;
+          visibility: visible;
         }
 
         &:hover{

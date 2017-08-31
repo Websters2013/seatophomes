@@ -31,6 +31,12 @@
     color: #fff;
     @include helvetica-bold;
     text-align: center;
+
+    p {
+      font-size: 14px;
+      padding-top: 20px;
+      line-height: 1.5;
+    }
   }
 
   &__video{
@@ -85,7 +91,7 @@
 
         &:after{
           top: calc( 100% + 50px );
-          height: 380px;
+          height: 300px;
         }
 
       }

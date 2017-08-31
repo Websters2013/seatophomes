@@ -42,10 +42,15 @@ $hero_title = get_field('hero_title', $dinamic_id);
 if(!empty($hero_title)) {
     $hero_title = '<h1>'.$hero_title.'</h1>';
 }
+$hero_description = get_field('hero_description', $dinamic_id);
+if(!empty($hero_description)) {
+	$hero_description = '<p>'.$hero_description.'</p>';
+}
 $hero_content = get_field('hero_content', $dinamic_id);
 if(!empty($hero_content)) {
-    $hero_content = '<div>'.$hero_content.'</div>';
+    $hero_content = '<div>'.$hero_content.$hero_description.'</div>';
 }
+
 
 $class_promo = '';
 if(is_page(12) || is_page(14)) {
