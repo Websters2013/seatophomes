@@ -23,6 +23,9 @@
     height: 100%;
     z-index: 2;
     pointer-events: none;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity .3s linear;
   }
 
   &__content{
@@ -64,7 +67,7 @@
 
     h1{
       padding: 0 30px;
-      font-size: 20px;
+      font-size: 28px;
       text-align: left;
     }
 
@@ -75,7 +78,7 @@
       & > div{
         position: relative;
 
-        &:before,
+        /*&:before,
         &:after{
           content: '';
           position: absolute;
@@ -91,8 +94,8 @@
 
         &:after{
           top: calc( 100% + 50px );
-          height: 300px;
-        }
+          height: 22vh;
+        }*/
 
       }
 
@@ -113,7 +116,7 @@
 
 @media (min-width: $desktop) {
   .hero {
-    height: calc( 100vh - 150px );
+    height: 100vh;
 
     h1 {
       top: 120px;

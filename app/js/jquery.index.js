@@ -36,12 +36,26 @@
             _addBgVideo = function () {
 
                 var path = _obj.data('video');
+                console.log('---');
+
 
                 $('.video-bg').YTPlayer({
                     videoId: path,
                     fitToBackground: true,
-                    mute: true
+                    mute: true,
+                    loop: true
                 });
+                video();
+                function video() {
+                    setTimeout(function () {
+                        if($('.video-bg').hasClass('loaded')) {
+                           $('.hero__layout').css('opacity', '0');
+                        } else {
+                            video();
+                        }
+                    }, 400);
+                }
+
             },
             _init = function () {
                 _addBgVideo();

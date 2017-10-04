@@ -27,9 +27,15 @@ if( $locations && isset($locations[ $menu_name ]) ){
 }
 
 $logo = get_field('logo', $post_id);
+$logo_dark = get_field('logo_dark', $post_id);
 $logo_string = '';
 if(!empty($logo)) {
-    $logo_string = '<img src="'.$logo['url'].'" alt="'.$logo['alt'].'" title="'.$logo['title'].'">';
+    $logo_string = '<picture>
+        <source srcset="'.$logo['url'].'" media="(min-width: 769px)" />
+        <source srcset="'.$logo_dark['url'].'" media="(min-width: 320px)" />
+        <img src="'.$logo['url'].'" alt="'.$logo['alt'].'" title="'.$logo['title'].'">
+    </picture>
+    ';
     if(is_front_page()) {
 	    $logo_string = '<h1 class="logo">'.$logo_string.'</h1>';
     } else {
